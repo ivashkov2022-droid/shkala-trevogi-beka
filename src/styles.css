@@ -235,7 +235,7 @@ button { color: inherit; font: inherit; }
   .question-body { width: calc(100% - 40px); padding: 32px 0; }
   .question-body h2 { min-height: 0; margin-bottom: 28px; font-size: 2rem; }
   .response-list button { min-height: 66px; padding: 10px 12px; grid-template-columns: 20px 22px 1fr; gap: 10px; }
-  .response-copy small { display: none; }
+  .response-copy small { display: block; font-size: .6rem; line-height: 1.28; }
   .question-controls { min-height: 72px; padding: 10px 16px; grid-template-columns: 62px minmax(0, 1fr); gap: 10px; }
   .back-control { justify-self: start; font-size: .62rem !important; }
   .save-state { display: none; }
