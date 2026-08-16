@@ -198,6 +198,7 @@ button { color: inherit; font: inherit; }
 
 @media (max-width: 920px) {
   .header-purpose { display: none; }
+  .question-panel { scroll-margin-top: 62px; }
   .mobile-intro { display: block; padding: 20px 28px 18px; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, rgba(223,233,226,.9), rgba(232,228,239,.75)); }
   .mobile-intro .micro-label { margin-bottom: 8px; font-size: .6rem; }
   .mobile-intro h1 { max-width: 560px; margin: 0; font-size: 1.4rem; line-height: 1.1; font-weight: 580; letter-spacing: -.025em; }

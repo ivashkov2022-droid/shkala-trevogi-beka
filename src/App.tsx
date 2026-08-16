@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { options, questions, scoreRanges } from "./test-data";
 
 type Screen = "test" | "result" | "history";
@@ -26,6 +26,7 @@ export default function Home() {
   const [showInfo, setShowInfo] = useState(false);
   const [ready, setReady] = useState(false);
   const [linkSaved, setLinkSaved] = useState(false);
+  const questionPanelRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -75,6 +76,20 @@ export default function Home() {
   function goToQuestion(index: number) {
     setCurrent(index);
     setScreen("test");
+  }
+
+  function revealQuestionOnMobile() {
+    window.requestAnimationFrame(() => {
+      if (window.matchMedia("(max-width: 920px)").matches) {
+        questionPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
+
+  function previous() {
+    if (current === 0) return;
+    setCurrent((value) => Math.max(0, value - 1));
+    revealQuestionOnMobile();
   }
 
   function next() {
@@ -213,7 +228,7 @@ export default function Home() {
             </div>
           </aside>
 
-          <section className="question-panel">
+          <section className="question-panel" ref={questionPanelRef}>
             <div className="question-topline">
               <span>Вопрос {String(current + 1).padStart(2, "0")}</span>
               <span>из {questions.length}</span>
@@ -244,7 +259,7 @@ export default function Home() {
             </div>
 
             <div className="question-controls">
-              <button className="back-control" type="button" disabled={current === 0} onClick={() => setCurrent((value) => value - 1)}>← Назад</button>
+              <button className="back-control" type="button" disabled={current === 0} onClick={previous}>← Назад</button>
               <span className="save-state">{selected === undefined ? "Ответ не выбран" : "Ответ сохранён"}</span>
               <button className="next-control" type="button" disabled={selected === undefined} onClick={next}>
                 {current === questions.length - 1 ? "Завершить" : "Следующий вопрос"} <span>→</span>
