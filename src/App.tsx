@@ -81,7 +81,7 @@ export default function Home() {
   function revealQuestionOnMobile() {
     window.requestAnimationFrame(() => {
       if (window.matchMedia("(max-width: 920px)").matches) {
-        questionPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        questionPanelRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
       }
     });
   }
