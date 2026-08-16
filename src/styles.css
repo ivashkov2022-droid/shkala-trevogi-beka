@@ -49,6 +49,7 @@ button { color: inherit; font: inherit; }
 .header-actions button:hover { background: var(--sage-100); border-color: var(--sage-300); }
 .header-actions b { display: inline-flex; min-width: 20px; height: 20px; align-items: center; justify-content: center; margin-left: 5px; border-radius: 10px; background: var(--sage-700); color: var(--white); font-size: .62rem; }
 .header-actions .save-header-button { background: var(--sage-100); border-color: var(--sage-300); color: var(--sage-700); }
+.mobile-intro { display: none; }
 
 .test-layout { min-height: calc(100vh - 72px); display: grid; grid-template-columns: minmax(310px, 30%) 1fr; }
 .test-sidebar { padding: 46px 34px 30px; background: var(--sage-100); border-right: 1px solid var(--line); display: flex; flex-direction: column; }
@@ -197,6 +198,10 @@ button { color: inherit; font: inherit; }
 
 @media (max-width: 920px) {
   .header-purpose { display: none; }
+  .mobile-intro { display: block; padding: 20px 28px 18px; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, rgba(223,233,226,.9), rgba(232,228,239,.75)); }
+  .mobile-intro .micro-label { margin-bottom: 8px; font-size: .6rem; }
+  .mobile-intro h1 { max-width: 560px; margin: 0; font-size: 1.4rem; line-height: 1.1; font-weight: 580; letter-spacing: -.025em; }
+  .mobile-intro > p:not(.micro-label) { max-width: 650px; margin: 10px 0 0; color: var(--muted); font-size: .72rem; line-height: 1.42; }
   .test-layout { grid-template-columns: 1fr; }
   .test-sidebar { padding: 25px 28px; border-right: 0; border-bottom: 1px solid var(--line); }
   .sidebar-copy h1 { font-size: 2rem; }
@@ -211,7 +216,11 @@ button { color: inherit; font: inherit; }
 @media (max-width: 640px) {
   .assessment-header { min-height: 62px; padding: 0 16px; }
   .test-name > span:last-child { display: none; }
-  .header-actions button { padding: 8px 9px; font-size: .66rem; }
+  .header-actions button { min-height: 38px; padding: 8px 9px; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; font-size: .66rem; }
+  .header-actions button:last-child b { flex: 0 0 20px; margin-left: 5px; }
+  .mobile-intro { padding: 18px 20px 16px; }
+  .mobile-intro h1 { max-width: 330px; margin: 0; font-size: 1.28rem; line-height: 1.08; font-weight: 580; letter-spacing: -.025em; }
+  .mobile-intro > p:not(.micro-label) { max-width: 520px; margin: 10px 0 0; color: var(--muted); font-size: .7rem; line-height: 1.42; }
   .test-layout { min-height: calc(100vh - 62px); }
   .test-sidebar { padding: 20px; }
   .sidebar-copy { display: grid; grid-template-columns: .65fr 1fr; gap: 15px; align-items: start; }

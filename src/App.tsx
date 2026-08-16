@@ -172,7 +172,14 @@ export default function Home() {
       </header>
 
       {screen === "test" && (
-        <div className="test-layout">
+        <>
+          <section className="mobile-intro" aria-label="О тесте">
+            <p className="micro-label">Шкала тревоги Бека · 21 вопрос</p>
+            <h1>Оценивает выраженность тревожных симптомов за 7 дней</h1>
+            <p>Повторяйте еженедельно — история сохранится в этом браузере и покажет динамику. Ответы не отправляются на сервер.</p>
+          </section>
+
+          <div className="test-layout">
           <aside className="test-sidebar">
             <div className="sidebar-copy">
               <p className="micro-label">Период оценки</p>
@@ -244,7 +251,8 @@ export default function Home() {
               </button>
             </div>
           </section>
-        </div>
+          </div>
+        </>
       )}
 
       {screen === "result" && (
